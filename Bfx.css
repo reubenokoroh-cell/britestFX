@@ -1,0 +1,590 @@
+header {
+    background-color: #333333; /* Dark grey background */
+    color: white;
+    padding: 30px;
+    text-align: start;
+    position: relative;
+    overflow: hidden;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    position: relative;
+    z-index: 2; /* Keeps text above the slant */
+}
+
+/* Style specifically for the "FX" part */
+header h1 .fx-red {
+    color: #ff0000;            /* Bright red */
+    font-weight: bold;         /* Makes FX stand out more */
+    text-shadow: 0 0 8px rgba(255, 0, 0, 0.6); /* Subtle glow */
+}
+
+/* Wider and more extended slant design */
+header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 900px;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        transparent 30%,
+        black 30%,
+        black 45%,
+        white 45%,
+        white 55%,
+        red 55%,
+        red 70%,
+        transparent 70%
+    );
+    transform: skewX(-25deg);
+    transform-origin: top right;
+    z-index: 1;
+}
+
+/* Adjust for smaller screens */
+@media (max-width: 768px) {
+    header::after {
+        width: 400px;
+    }
+    
+    header h1 {
+        font-size: 2em;
+        text-align: start;
+    }
+
+    header h1 .fx-red {
+        font-size: 1.1em; /* Slightly larger on small screens if needed */
+    }
+}
+
+/* About Section */
+.about-section {
+    padding: 80px 20px;
+    background-color: #ffffff; /* Clean white background */
+    text-align: center;
+}
+
+.about-section h2 {
+    font-size: 2.4em;
+    margin-bottom: 30px;
+    color: #333;
+    position: relative;
+    display: inline-block;
+}
+
+.about-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: #ff0000; /* Red underline to match theme */
+    border-radius: 2px;
+}
+
+.about-section p {
+    font-size: 1.2em;
+    line-height: 1.8;
+    color: #555;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Responsive for About Section */
+@media (max-width: 768px) {
+    .about-section {
+        padding: 60px 15px;
+    }
+    
+    .about-section h2 {
+        font-size: 2em;
+    }
+    
+    .about-section p {
+        font-size: 1.1em;
+    }
+}
+
+/* Services Section */
+.services-section {
+    padding: 60px 20px;
+    background-color: #f8f8f8; /* Very light grey background */
+    text-align: center;
+}
+
+.services-section h2 {
+    font-size: 2.2em;
+    margin-bottom: 50px;
+    color: #333;
+}
+
+/* Grid Layout */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Individual Service Card */
+.service-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.service-card h3 {
+    font-size: 1.6em;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.service-card p {
+    color: #666;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+/* Button Style */
+.btn {
+    display: inline-block;
+    background-color: #ff0000; /* Matches your red theme */
+    color: white;
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #cc0000;
+}
+
+/* Responsive: Stack on tablets and phones */
+@media (max-width: 992px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .services-section {
+        padding: 40px 15px;
+    }
+    
+    .services-section h2 {
+        font-size: 1.8em;
+    }
+}
+
+/* Footer Styles */
+footer {
+    background-color: #2b2929;
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.fx-red {
+    color: #ff0000;
+    font-weight: bold;
+    text-shadow: 0 0 8px rgba(255, 0, 0, 0.6); /* Optional glow – looks great on dark footer */
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-logo {
+    font-size: 2.2em;
+    margin-bottom: 20px;
+}
+
+.social-icons {
+    margin: 30px 0;
+}
+
+.social-icons a {
+    margin: 0 15px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    transform: translateY(-5px);
+}
+
+.social-icons img {
+    width: 40px;
+    height: 40px;
+    filter: brightness(-1) invert(2); /* Ensures icons appear white */
+}
+
+.copyright {
+    margin-top: 30px;
+    font-size: 0.9em;
+    color: #cccccc;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .footer-logo {
+        font-size: 1.8em;
+    }
+    
+    .social-icons img {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+/* Additional styles for exchange.html */
+.grid-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.grid-images img {
+    width: 100%;
+    height: auto;
+    max-height: 140px;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.grid-images img:hover {
+    transform: scale(1.15);
+}
+
+.contact-link span {
+    display: block;
+    margin-top: 10px;
+    font-size: 1.1em;
+}
+
+.contact-link img {
+    filter: brightness(0) invert(0); /* Keep original colors – WhatsApp green, etc. */
+    transition: filter 0.3s;
+}
+
+.contact-link:hover img {
+    filter: brightness(1.2);
+}
+
+/* Exchange Page Styles */
+.exchange-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.intro-section, .assets-section, .info-section, .contact-section {
+    margin-bottom: 80px;
+    text-align: center;
+}
+
+.intro-section h2, .assets-section h2, .info-section h2, .contact-section h2 {
+    font-size: 2.2em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.intro-section p {
+    font-size: 1.2em;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto 10px;
+}
+
+/* Assets Grid */
+.assets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.assets-grid img {
+    width: 100%;
+    height: auto;
+    max-height: 130px;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Info Grid */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.info-card {
+    background: #f8f8f8;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.info-card h3 {
+    color: #ff0000;
+    margin-bottom: 15px;
+}
+
+/* Contact Grid */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+.contact-item {
+    background: #f8f8f8;
+    padding: 30px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-8px);
+    background: white;
+}
+
+.contact-item img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+}
+
+.whatsapp img {
+    width: 45px;  /* Slightly smaller WhatsApp icon */
+    height: 45px;
+}
+
+.contact-item span {
+    display: block;
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+/* Message Box */
+.message-box {
+    max-width: 700px;
+    margin: 50px auto 0;
+    background: #f8f8f8;
+    padding: 40px;
+    border-radius: 12px;
+}
+
+.message-box h3 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.message-box textarea {
+    width: 100%;
+    height: 140px;
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1.1em;
+}
+
+.message-box textarea:focus {
+    outline: none;
+    border-color: #ff0000;
+}
+
+.message-box .btn {
+    margin-top: 20px;
+    padding: 14px 30px;
+    background: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contact-grid, .info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .intro-section h2, .assets-section h2, .info-section h2, .contact-section h2 {
+        font-size: 1.8em;
+    }
+}
+
+/* Separate sections for crypto and gift cards */
+.crypto-section, .giftcard-section {
+    margin-bottom: 80px;
+    text-align: center;
+}
+
+.crypto-section h2, .giftcard-section h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* Contact details text */
+.contact-label {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.contact-detail {
+    font-size: 1.1em;
+    color: #ff0000;
+    margin-top: 8px;
+    font-weight: bold;
+}
+
+/* Slightly smaller WhatsApp icon as before */
+.whatsapp img {
+    width: 50px;
+    height: 50px;
+}
+
+.gadgets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.gadget-card {
+    background: #f8f8f8;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.gadget-card img {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.gadget-card h4 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.gadget-card p {
+    font-size: 0.9em;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Dogs Page - Simple Design */
+.dogs-intro {
+    background-color: #f8f8f8;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.dogs-intro h2 {
+    font-size: 2.4em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.dogs-intro p {
+    font-size: 1.2em;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.dogs-section {
+    padding: 40px 20px;
+}
+
+.dogs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.dog-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.dog-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+.dog-info {
+    padding: 20px;
+}
+
+.dog-name {
+    font-size: 1.6em;
+    color: #333;
+    margin: 0 0 10px;
+}
+
+.dog-details {
+    font-size: 1em;
+    color: #666;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .dogs-intro h2 { 
+        font-size: 2em; 
+    }
+    .dog-card img { 
+        height: 220px; 
+    }
+    .dog-name { 
+        font-size: 1.4em; 
+    }
+}
