@@ -1,17 +1,16 @@
-// Send Message Form - WhatsApp Integration
 document.addEventListener('DOMContentLoaded', function() {
-    const messageForms = document.querySelectorAll('.message-box form');
-    messageForms.forEach(form => {
-        form.addEventListener('submit', function(e) {
+    const sendButtons = document.querySelectorAll('.message-box .btn');
+    sendButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
             e.preventDefault();
-            const textarea = this.querySelector('textarea');
+            const textarea = this.previousElementSibling;  // Assumes textarea is right before the button
             const message = textarea.value.trim();
             
             if (message) {
                 const whatsappNumber = '2348130261674';
                 const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent('New Order/Message: ' + message)}`;
                 window.open(whatsappURL, '_blank');
-                textarea.value = ''; // Clear form
+                textarea.value = '';  // Clear textarea
             } else {
                 alert('Please enter a message first.');
             }
